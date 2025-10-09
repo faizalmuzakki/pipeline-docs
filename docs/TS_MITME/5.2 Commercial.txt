@@ -1,0 +1,204 @@
+5.2 Commercial
+5.2.1 Account Balance
+Figure 20. Account Balance Component Design
+5.2.1.1 User Interface
+When a user opens this page, the UI sends a token (usually a JWT) to the backend. This token represents the user’s identity and is used for authentication. No business logic happens here; it simply initiates the request and presents the result to the user.
+5.2.1.2 Security
+The middleware acts as a security layer, handling both authentication and authorization. After receiving the token from the UI, it verifies the token’s validity by calling the User Service, which retrieves user data from the database. Once the user is verified, the middleware then requests all related customer data through Customer Service, allowing the system to proceed with fetching account balances for those customers.
+5.2.1.3 Application Service
+5.2.1.3.1 User Service
+Retrieves user data based on the token provided. This is used to verify that the user is authenticated and authorized to access further data.
+5.2.1.3.2 Customer Service
+Returns all customer records related to the authenticated user. This list of customers will later be used to fetch account balance data individually.
+5.2.1.3.3 Account Balance Service
+This is the core service that gathers and processes the account balance data for each customer. It integrates several other services to collect the required information.
+5.2.1.3.4 Itemvims Service
+Fetches customer-specific item numbers from the database. These item numbers are used to look up balances and other related data.
+5.2.1.3.5 Item Card Balance Service
+Retrieves the balance details of each item—such as available quantities—from the database.
+5.2.1.3.6 Item Service
+Returns full metadata about each item (e.g., name, description, unit). This is used to enrich the account balance details.
+5.2.1.3.7 Ordervims Service
+Provides account balance ledger entries. These are the transactional records (debits, credits, etc.) related to the account, used to calculate balances.
+5.2.1.3.8 Forecast Service
+Supplies forecast data, giving insights into future trends or projections of the account balance. This helps with planning or reporting.
+5.2.1.4 Database
+MongoDB serves as the central data store for the entire application. It holds all persistent data, including user records, customer profiles, item data, transaction ledgers, and forecast models. All the application services communicate directly with MongoDB to fetch or process the data they are responsible for. This structure allows for flexible, scalable, and efficient data handling.
+5.2.2 Commitment
+Figure 21. Commitment Component Design
+5.2.2.1 User Interface
+5.2.2.1.1 Create Commitment Form
+This is the user-facing interface where users can input and submit new commitment data. It sends a token for authentication and initiates the process of creating a new commitment.
+5.2.2.1.2 Close Short Commitment
+This UI component is used to update or close a commitment earlier than its full term (e.g., due to cancellation or completion). It also sends a token to initiate the secure process.
+5.2.2.2 Security
+The middleware validates the incoming token from both UI components to authenticate the user. It ensures only authorized users can proceed. After verification, it calls the User Service to fetch user data, such as full name or username, used in both commit creation and closure.
+5.2.2.3 Application Service
+5.2.2.3.1 Create Commitment
+5.2.2.3.1.1 User Service
+Retrieves all user data from the database including internal users, customer approvers, etc. It's also used later for notification purposes and fetching user info.
+5.2.2.3.1.2 Customer Service Data
+Provides customer-related information like customer contact, contract details, and active statuses.
+5.2.2.3.1.3 CustomerField Service
+Supplies dropdown options such as commitment field input for custom UI fields.
+5.2.2.3.1.4 Delivery Term Service
+Fetches delivery term options, including general terms and special ones like VMI (Vendor Managed Inventory).
+5.2.2.3.1.5 Item Service
+Retrieves a list of items that are not handling equipment, i.e., eligible for commitment.
+5.2.2.3.1.6 Range Service
+Gets item range data (e.g., valid quantity or period ranges) for validation or selection.
+5.2.2.3.1.7 Item VMI Service
+Retrieves and validates VMI (Vendor Managed Inventory) by customer.
+5.2.2.3.1.8 ItemCardBalance Service
+Responsible for inserting or updating the item card balance related to the commitment.
+5.2.2.3.1.9 OrderVMI Service
+Manages the VMI orders. Inserts or updates order data linked to the commitment.
+5.2.2.3.1.10 Commitment Service
+Main service for saving the commitment itself into the system. It interacts with multiple services to ensure everything is correctly stored—commitment data, item card balance, order VMI, and customer contract data.
+5.2.2.3.1.11 Notification Service
+Sends a notification (usually after saving) to users involved in the commitment (e.g., confirmation or status update).
+5.2.2.3.2 Close Short Commitment
+5.2.2.3.2.1 User Service
+Retrieves user information like full name or username for logging or tracking who closed the commitment.
+5.2.2.3.2.2 Commitment Service
+Updates the status of the commitment to completed short and saves this update to the database.
+5.2.2.3.2.3 ItemCardBalance Service
+Updates the item card balance, reflecting the short closing of the commitment.
+5.2.2.3.2.4 OrderVMI Service
+Updates any related VMI orders to reflect the closure.
+5.2.2.3.2.5 Notification Service
+Triggers and sends out notification to inform relevant users about the closure.
+5.2.2.4 Database
+MongoDB is the central database where all data is stored or retrieved, including:
+•
+Customer and user information
+•
+Item data and ranges
+•
+Commitment records
+•
+VMI orders and balances
+•
+Notifications
+All application services interact directly with MongoDB to perform reads and writes based on their responsibilities.
+5.2.3 Forecast
+Figure 22. Forecast Component Design
+5.2.3.1 User Interface
+5.2.3.1.1 Create Forecast Form
+This is the user interface for inputting new forecast data. It sends a token for user authentication and triggers the loading of item/customer options. After completing the form, it calls backend services to save the forecast.
+5.2.3.1.2 Dashboard Forecast
+This UI displays all forecast records in a centralized view. Users can perform operations like filtering, moving, duplicating, deleting, or importing forecast data. It sends a token to access protected data.
+5.2.3.1.3 Sidebar Forecast
+This UI presents a summary of a grouped view of forecasts, typically for quick access, filtering, or navigation. It also sends a token and interacts with the backend to get grouped data, such as forecast per period or group.
+5.2.3.2 Security
+Each UI component communicates with the Middleware, which:
+•
+Verifies the user token
+•
+Validates access rights
+•
+Passes control to the relevant Application Services
+This ensures that only authenticated and authorized users can perform forecast operations.
+5.2.3.3 Application Services
+5.2.3.3.1 Form Data and Filtering
+5.2.3.3.1.1 Customer Service
+Retrieves customer data used in dropdowns or filters.
+5.2.3.3.1.2 Item Service
+Retrieves item options needed to define forecast items.
+5.2.3.3.1.3 Get Dashboard Forecast
+Loads forecast data to be shown in the dashboard.
+5.2.3.3.1.4 Advance Filter Forecast
+Applies custom filters on forecast data (e.g., customer, item, well, or date range).
+5.2.3.3.2 Forecast Operation
+5.2.3.3.2.1 Submit Forecast → SaveForecast()
+Saves new forecast entries to the database.
+5.2.3.3.2.2 Move Forecast → MoveForecast()
+Moves a forecast from one period or group to another.
+5.2.3.3.2.3 Duplicate Forecast → DuplicateForecast()
+Copies an existing forecast record for reuse.
+5.2.3.3.2.4 Delete Forecast → DeleteForecast()
+Removes a specific forecast from the database.
+5.2.3.3.2.5 Import Forecast → SubmitImportForecast()
+Imports multiple forecasts from an external source.
+5.2.3.3.2.6 Delete Forecast by Well → DeleteForecastByForecast()
+Deletes forecasts based on well ID or group.
+5.2.3.3.2.7 Get Sidebar Forecast → getForecastListWithPeriodByGroup()
+Retrieves grouped forecasts by period to be shown in the sidebar interface.
+5.2.3.3.3 Supporting Logic
+5.2.3.3.3.1 OrderVims Service
+Updates OrderVims data based on forecast recaps (e.g., quantity forecasts turn into order plans) and saves or updates forecast-based OrderVims records in MongoDB.
+5.2.3.4 Database
+MongoDB is the single source of truth for all forecasting data. It stores:
+•
+Forecast records
+•
+Customer and item master data
+•
+Grouped forecast views
+•
+Imported forecast batches
+•
+Updated OrderVims entries
+MongoDB is accessed by:
+•
+Forecast Service (read/write all forecast-related records)
+•
+Customer & Item Service (read dropdown/filter data)
+•
+OrderVims Service (read/write forecast-linked VMI data)
+5.2.4 Ownership Transfer
+Figure 23. Ownership Transfer Component Design
+5.2.4.1 User Interface
+5.2.4.1.1 Create Ownership Transfer Form
+This is the user interface where users input and submit data to initiate an ownership transfer. The form sends a token for user authentication and triggers the data gathering and submission process.
+5.2.4.1.2 Toggle Invoice Ownership Transfer Form
+This UI is used to toggle or update the ownership transfer status for invoices. It also sends a token to the backend to initiate secure data processing.
+5.2.4.2 Security
+In both flows, the middleware acts as a gatekeeper. It authenticates the token received from the UI to verify the user's identity. Once validated, it calls the User Service to fetch user information and allows the request to proceed to application services.
+5.2.4.3 Application Services
+5.2.4.3.1 Create Ownership Transfer
+5.2.4.3.1.1 Customer Service
+Retrieves customer data needed for the form or processing the ownership change.
+5.2.4.3.1.2 PrivilegeAccessibility Service
+Retrieves user privilege data to determine whether the user has the rights to perform ownership transfer.
+5.2.4.3.1.3 User Service
+Provides user information (ID, name, role) for ownership logging, tracking, and permissions.
+5.2.4.3.1.4 StoreBusiness Service
+Supplies store or business-related data from the database for contextual validation.
+5.2.4.3.1.5 CustomField Service
+Provides dynamic custom field configurations for the form (e.g., dropdowns).
+5.2.4.3.1.6 WellName Service
+Retrieves available well names associated with the ownership context.
+5.2.4.3.1.7 CollectionPlan Service
+Gets data used in relation to collection planning, likely involved with ownership responsibilities.
+5.2.4.3.1.8 Item Service
+Fetches item data, including stock lists, associated with the transfer. It also handles item selection in the form.
+5.2.4.3.1.9 CustomFieldItem Service
+Supplies item-specific custom fields (e.g., classification, tags) used for filtering or validation.
+5.2.4.3.1.10 Ledger Service
+Updates the ledger to reflect the ownership change, ensuring historical and financial accuracy.
+5.2.4.3.1.11 SaveOwnershipTransfer Service
+The core service that saves the actual ownership transfer record to the database.
+5.2.4.3.1.12 EventSaveOwnershipTransfer
+Sends a signal or record that an ownership transfer event occurred, possibly for audit trail or logging.
+5.2.4.3.1.13 Notification Service
+Sends a notification to users involved in the ownership transfer (e.g., sender/receiver).
+5.2.4.3.2 Toggle Invoice Ownership Transfer Form
+5.2.4.3.2.1 OwnershipTransfer Service
+Loads the existing ownership transfer data from the database.
+5.2.4.3.2.2 Commitment Service
+Retrieves and saves commitment data linked to the transferred item(s).
+5.2.4.3.2.3 Item Service
+Retrieves the item data involved in the invoice ownership transfer process.
+5.2.4.3.2.4 AccBalance Service
+Handles creation and saving of new account balances related to the invoice (e.g., moving ownership value from one party to another).
+5.2.4.3.2.5 CreateAccbalance Service
+Creates new account balance entries based on the ownership transfer.
+5.2.4.3.2.6 ToggleInvoice Service
+The main logic for updating or toggling the invoice ownership status.
+5.2.4.3.2.7 EventToggleInvoice
+Logs or notifies that an invoice ownership transfer was toggled.
+5.2.4.3.2.8 User Service
+Retrieves user info to determine the actor and recipient in the transfer.
+5.2.4.4 Database
+MongoDB is the central database that stores all relevant data such as customer and user information, business/store data, custom field definitions, item data and item-specific fields, ownership transfer records, ledger entries, account balances, notifications. MongoDB serves as the central data storage that supports all application services by providing persistent and structured data for the Ownership Transfer and Invoice Toggle Transfer processes.
