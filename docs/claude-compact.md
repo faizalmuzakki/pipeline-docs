@@ -1,6 +1,6 @@
 This session is being continued from a previous conversation that ran out of context. The conversation is summarized below:
 Analysis:
-This is a continuation session focused on completing the MCMS Linepipe Technical Design Document (TDD). Let me analyze chronologically:
+This is a continuation session focused on completing the Pipeline Technical Design Document (TDD). Let me analyze chronologically:
 
 ## Prior Context:
 The session started with a comprehensive summary showing Sections 1-4 were already completed in a previous session. The user wanted to continue with Section 5 Component Design.
@@ -85,7 +85,7 @@ The session started with a comprehensive summary showing Sections 1-4 were alrea
 Summary:
 ## 1. Primary Request and Intent
 
-**Main Request:** Continue expanding the MCMS Linepipe Technical Design Document (TDD) to match the 366-page detail level of the reference document TS_MITME-TDD.pdf. This session focused on completing:
+**Main Request:** Continue expanding the Pipeline Technical Design Document (TDD) to match the 366-page detail level of the reference document TS_MITME-TDD.pdf. This session focused on completing:
 
 1. **Section 5: Component Design** - Create detailed documentation for 12 modules (Global, SOW, Work Order, MDR, Inspection, Product Trace, Transfer, Commercial, NCR, Procedure, Progress, Report) using the TS_MITME narrative flow format
 2. **Section 6: API Endpoints** - Organize and reference 27 existing endpoint documentation files
@@ -107,7 +107,7 @@ And component design diagrams showing the flow from UI → Middleware → Servic
 
 ## 2. Key Technical Concepts
 
-- **MCMS Linepipe Architecture**: Monolithic Laravel 11 + Vue.js 3 application
+- **Pipeline Architecture**: Monolithic Laravel 11 + Vue.js 3 application
 - **Multi-Tenancy**: 1 global MongoDB database (`pipeline_global` with 24 collections) + 1 database per project (`mongodb_project_{code}` with 51+ collections)
 - **Authentication**: Laravel Passport OAuth 2.0 with JWT Bearer tokens
 - **Database**: MongoDB 7.x (upgrading to v8), no MySQL except for migrations table
@@ -256,10 +256,10 @@ The SOW Service (`App\Services\Projects\SOWService`) is the core service that ma
 
 ## 6.1 Global Endpoints
 
-### 6.1.1 [Dashboard](../fix/endpoints/global/dashboard.md)
+### 6.1.1 [Dashboard](./TDD/endpoints/global/dashboard.md)
 Global dashboard statistics and project overview data.
 
-### 6.1.2 [Project Management](../fix/endpoints/global/project.md)
+### 6.1.2 [Project Management](./TDD/endpoints/global/project.md)
 Project CRUD operations, project provisioning, and database management.
 
 ## API Conventions
@@ -577,5 +577,185 @@ The task has been concluded. If the user wants to continue, they should provide 
 2. Adding additional data flow diagrams for specific workflows
 3. Review and refinement of existing sections
 4. Moving to different documentation tasks entirely
+
+---
+
+# CONTINUATION SESSION - DFD Revision & RBAC Corrections
+
+## Session Timeline
+
+**Session 2 (Continuation):** October 16, 2025 - DFD Accuracy Review and RBAC Implementation
+
+### Message 1: Dashboard Module Decision
+- **User opened**: `/home/solork/Projects/mcms-lp/resources/js/components/global/dashboard/DashboardComponent.vue`
+- **Context**: User asked whether to include Global/Dashboard module in DFD documentation
+- **Analysis**: Dashboard is a read-only aggregation view (no data creation/modification), displays S-curves from aggregated project data
+- **Decision**: **NO** - Dashboard should NOT have its own DFD section because:
+  - It's purely a reporting/visualization layer
+  - Already covered in Section 7.1 System Overview under "REPORTING - Reporting & Analytics"
+  - Better documented as Component Design (5.1.7) showing UI → API → Data flow
+  - DFDs should focus on data transformation processes, not just data display
+- **User response**: "okay then if you think the inspection section content already matches with the codebase & logic. now we should also check on the other sections not only inspection and revise based on what we found"
+
+### Message 2: SOW Management DFD Revision
+- **User request**: "yes let's" (proceed with revising Section 7.2 SOW Management)
+- **Action taken**: Deep codebase analysis of SOW module
+  - Read `/home/solork/Projects/mcms-lp/app/Services/Projects/SOWService.php` (4097 lines)
+  - Read `/home/solork/Projects/mcms-lp/app/Http/Controllers/Api/Projects/SOWController.php`
+  - Read database schema from `/home/solork/Projects/pipeline-docs/docs/Database-Schema.md`
+  - Analyzed actual workflow: Create → Validate → Calculate → Generate WOs → Update Progress
+- **Changes made to Section 7.2**:
+  - **7.2.1 (Level 0)**: Added narrative description following TS_MITME format
+  - **7.2.2 (Level 1)**: Created detailed DFD with 5 numbered processes, D1-D7 data stores, and Key Components Table 7.2
+  - **Architecture documented**: Duplicate checking, quantity conversions (PCS ↔ M ↔ MT), automatic WO generation, Artisan commands
+- **Changes made to Section 7.3**: Added SOW Lot Management as sub-process with Level 1 DFD and Key Components Table 7.3
+
+### Message 3: RBAC Corrections - Multiple Authorized Roles
+- **User opened**: `/home/solork/Projects/mcms-lp/app/Repositories/Globals/Privilege/PrivilegeRepository.php`
+- **Critical instruction**: "these are the current roles and also their privileges so the roles are divided into 2 categories: global roles and project roles. SOWs & Inspections are project-scoped so we should consider the project roles because the roles that could make some changes or create things aren't only project manager"
+- **User provided files**:
+  - `PrivilegeRepository.php` showing privilege matrix (RW/R/N access levels)
+  - `PrivilegeService.php` for privilege translation
+  - `general.js` showing `isAuthorized()` frontend implementation
+  - `SOWComponent.vue` showing usage example
+- **Analysis revealed**:
+  - **Previous DFD error**: Only showed "Project Manager" as user
+  - **Actual RBAC**: Multiple roles have RW access to SOW and Inspection
+  - **RW Access (SCOPE_OF_WORK, PROJECT_CONTROL = RW)**:
+    - Super Admin
+    - Project Manager
+    - Project Team
+    - Project Team (BU)
+    - Project Team (MISI)
+    - Project Team (Non MI)
+    - MI Team
+  - **R Access (Read-Only)**:
+    - Customer
+    - Non MI Team
+    - Global Viewer
+  - **N Access (No Access)**:
+    - Vendor (deprecated - not currently used)
+    - Company TPI (deprecated - not currently used)
+- **Changes made**: Updated all DFD diagrams in Sections 7.2, 7.3, and 7.4 to show "Authorized User (PM / Project Team / Super Admin / MI Team)" instead of just "Project Manager"
+
+### Message 4: Global vs Project Roles Clarification
+- **User opened**: `/home/solork/Projects/mcms-lp/app/Models/Globals/User.php`
+- **User clarified**: "these roles aren't used at the moment" (Company User, Vendor, Company TPI, Customer Third Party) and "the global roles are these while the rest are project roles"
+- **Corrected Role Structure**:
+  - **Global Roles (4)**: `super_admin`, `mi_team`, `global_viewer`, `vendor_approver`
+  - **Project Roles (7 active)**: `project_manager`, `project_team`, `project_team_bu`, `project_team_misi`, `project_team_non_mi`, `non_mi_team`, `customer`
+  - **Deprecated (4)**: `company_user`, `vendor`, `company_tpi`, `customer_third_party`
+- **Final changes made**: 
+  - Removed all references to deprecated roles from DFD diagrams
+  - Updated Read-Only User labels to show only active roles: "Customer / Non MI Team / Global Viewer"
+  - Created MEMORY[c378671e-ad36-4a1f-a8ef-9373fd0049c4] documenting complete RBAC matrix
+
+## Key Corrections Summary
+
+### Section 7.2 SOW Management - Before & After
+
+**Before (Incorrect)**:
+- Simple Level 0 diagram only
+- User shown as generic "User" or "Project Manager"
+- No narrative descriptions
+- No Key Components table
+
+**After (Correct)**:
+- **7.2.1**: Level 0 with TS_MITME narrative format
+- **7.2.2**: Level 1 with 5 numbered processes, D1-D7 data stores, Table 7.2 with detailed process descriptions
+- User shown as: "Authorized User (PM / Project Team / Super Admin / MI Team)"
+- Documented actual workflow: Create SOW → Validate References → Calculate Conversions → Generate Work Orders → Update Progress & Value
+- Key features documented: Duplicate checking, quantity conversions, automatic WO generation, Artisan commands (`generate:forecast`, `progress:chart`, `adjust:overalls`)
+
+### Section 7.3 SOW Lot Management - New Addition
+
+**Added**:
+- Complete Level 1 DFD showing delivery lot creation and quantity validation
+- Table 7.3 Key Components documenting lot validation logic
+- Process: Create Delivery Lot → Validate Lot Quantity → Store Lot Data
+
+### Section 7.4 Inspection Management - RBAC Corrections
+
+**Before (Incorrect)**:
+- Users shown as "Quality Inspector/TPI" and "Project Manager"
+- No distinction between RW and R access levels
+
+**After (Correct)**:
+- **Level 0**: Shows both "Authorized User (PM / Project Team / Super Admin / MI Team)" and "Read-Only User (Customer / Non MI Team / Global Viewer)" with separate data flows
+- **Level 1**: Updated user entities with privilege validation
+- Table 7.1 Row 1: "Validates user privileges (PROJECT_CONTROL = RW)"
+- Table 7.1 Row 5: Shows both RW and R access with different capabilities
+
+## RBAC Matrix (Final)
+
+**Documentation created in MEMORY[c378671e-ad36-4a1f-a8ef-9373fd0049c4]**
+
+### Global Roles (4 roles)
+- Super Admin (`super_admin`) - RW access to all
+- MI Team (`mi_team`) - RW access to most project modules
+- Global Viewer (`global_viewer`) - R access to project modules
+- Vendor Approver (`vendor_approver`) - Limited access to vendor approval only
+
+### Project Roles (7 active roles)
+- Project Manager (`project_manager`) - RW access to all project modules
+- Project Team (`project_team`) - RW access to all project modules
+- Project Team BU (`project_team_bu`) - RW access to all project modules
+- Project Team MISI (`project_team_misi`) - RW access to all project modules
+- Project Team Non MI (`project_team_non_mi`) - RW access to all project modules
+- Non MI Team (`non_mi_team`) - R access to project modules
+- Customer (`customer`) - R access to project modules
+
+### Deprecated/Unused Roles (4 roles - DO NOT USE)
+- Company User (`company_user`)
+- Vendor (`vendor`)
+- Company TPI (`company_tpi`)
+- Customer Third Party (`customer_third_party`)
+
+### Privilege Implementation
+- **Backend**: PrivilegeRepository and PrivilegeService validate user privileges
+- **Frontend**: `isAuthorized(routeName)` function checks route privileges against user role
+- **Middleware**: Authorization middleware validates privileges before controller execution
+- **Access Levels**: RW (Read-Write), R (Read-Only), N (No Access)
+- **Key Privileges**: `SCOPE_OF_WORK`, `PROJECT_CONTROL`, `LINEPIPE`, `WORK_ORDER`, etc.
+
+## Files Modified in Continuation Session
+
+1. **`/home/solork/Projects/pipeline-docs/docs/TDD/07-Data-Flow-Diagrams.md`**
+   - Section 7.2: Complete rewrite with narrative format and detailed Level 1 DFD
+   - Section 7.3: New section added for SOW Lot Management
+   - Section 7.4: RBAC corrections showing multiple user roles with different access levels
+   - All user labels updated to reflect accurate role structure
+   - Removed all references to deprecated roles
+
+## Critical Learnings for Future TDD Work
+
+1. **Always verify user roles against actual codebase** - Don't assume "Project Manager" is the only authorized role
+2. **Check GLOBAL_ROLES constant** in User model to distinguish global vs project roles
+3. **Consult PrivilegeRepository** to understand RW/R/N access patterns for each module
+4. **Dashboard modules are reporting layers** - Should be in Component Design, not DFDs (unless they transform data)
+5. **Use TS_MITME format for DFDs**: Narrative descriptions + Level 0 + Level 1 + Key Components tables
+6. **Data store notation**: Use D1, D2, D3... format in Level 1 DFDs for clarity
+7. **Deprecated roles exist in codebase** but shouldn't be documented as active - always verify with user
+8. **Privilege validation should be explicit** in process descriptions: "Validates user privileges (SCOPE_OF_WORK = RW)"
+9. **Show separate data flows** for different access levels (RW vs R) in diagrams
+10. **Cross-reference with actual Vue components** to verify user interactions and authorization checks
+
+## Document Status After Continuation Session
+
+**All 8 sections completed and revised**:
+- ✅ Section 1: Introduction
+- ✅ Section 2: System Configuration
+- ✅ Section 3: Coding Standards (skipped - handled by team)
+- ✅ Section 4: Interaction Protocols
+- ✅ Section 5: Component Design (12 modules documented)
+- ✅ Section 6: API Endpoints (27 endpoint files)
+- ✅ Section 7: Data Flow Diagrams (10 diagrams - **7.2, 7.3, 7.4 revised with accurate RBAC**)
+- ✅ Section 8: Database Collections
+
+**Quality improvements**:
+- Accurate RBAC representation across all DFDs
+- TS_MITME narrative format compliance
+- Codebase-verified workflow documentation
+- Deprecated roles removed from documentation
 
 The appropriate action is to **await user direction** rather than proceeding with additional work, as the stated objective (completing the TDD sections) has been achieved..

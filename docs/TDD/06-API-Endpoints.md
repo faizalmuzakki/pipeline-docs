@@ -1,6 +1,6 @@
 # 6. API Endpoints
 
-This section documents all RESTful API endpoints used in the MCMS Linepipe system. The endpoints are organized by functional modules and follow a consistent 3-column format: API Name, API Route, and HTTP Method.
+This section documents all RESTful API endpoints used in the Pipeline system. The endpoints are organized by functional modules and follow a consistent 3-column format: API Name, API Route, and HTTP Method.
 
 **Base URL:** `https://mcms-lp.example.com/api/v3`
 
@@ -14,25 +14,25 @@ This section documents all RESTful API endpoints used in the MCMS Linepipe syste
 
 Global endpoints manage system-wide data accessible across all projects, including user management, project provisioning, vendor master data, and global reference data.
 
-### 6.1.1 [Dashboard](../fix/endpoints/global/dashboard.md)
+### 6.1.1 [Dashboard](./endpoints/global/dashboard.md)
 Global dashboard statistics and project overview data.
 
-### 6.1.2 [Project Management](../fix/endpoints/global/project.md)
+### 6.1.2 [Project Management](./endpoints/global/project.md)
 Project CRUD operations, project provisioning, and database management.
 
-### 6.1.3 [User Management](../fix/endpoints/global/user.md)
+### 6.1.3 [User Management](./endpoints/global/user.md)
 Global user account management, role assignment, and authentication.
 
-### 6.1.4 [Vendor/Mill Management](../fix/endpoints/global/mill.md)
+### 6.1.4 [Vendor/Mill Management](./endpoints/global/mill.md)
 Vendor and manufacturer master data management.
 
-### 6.1.5 [Item Attributes](../fix/endpoints/global/item-attributes.md)
+### 6.1.5 [Item Attributes](./endpoints/global/item-attributes.md)
 Global item attribute definitions (OD, Grade, Specification, Connection, Special Conditions).
 
-### 6.1.6 [Ports & Locodes](../fix/endpoints/global/locodes.md)
+### 6.1.6 [Ports & Locodes](./endpoints/global/locodes.md)
 UN/LOCODE port reference data for shipment tracking.
 
-### 6.1.7 [Financial Forecast](../fix/endpoints/global/forecast.md)
+### 6.1.7 [Financial Forecast](./endpoints/global/forecast.md)
 D365 financial forecast data integration and reporting.
 
 ---
@@ -41,26 +41,26 @@ D365 financial forecast data integration and reporting.
 
 Project endpoints operate within the context of a specific project database and require the `Database-Access` header for multi-tenancy routing.
 
-### 6.2.1 [Project Dashboard](../fix/endpoints/project/dashboard.md)
+### 6.2.1 [Project Dashboard](./endpoints/project/dashboard.md)
 Project-specific dashboard with widgets, statistics, and progress charts.
 
-### 6.2.2 [Project User Management](../fix/endpoints/project/user.md)
+### 6.2.2 [Project User Management](./endpoints/project/user.md)
 Project-level user assignments and permissions.
 
-### 6.2.3 [Item Management](../fix/endpoints/project/item.md)
+### 6.2.3 [Item Management](./endpoints/project/item.md)
 Project-specific item catalog and specifications.
 
-### 6.2.4 [Specification Management](../fix/endpoints/project/specification.md)
+### 6.2.4 [Specification Management](./endpoints/project/specification.md)
 Technical specifications and inspection type definitions.
 
-### 6.2.5 [Test Management](../fix/endpoints/project/test.md)
+### 6.2.5 [Test Management](./endpoints/project/test.md)
 Material testing and qualification test records.
 
 ---
 
 ## 6.3 SOW & Work Order Endpoints
 
-### 6.3.1 [SOW (Scope of Work)](../fix/endpoints/project/sow.md)
+### 6.3.1 [SOW (Scope of Work)](./endpoints/project/sow.md)
 Contract line item management, SOW creation, and lot splitting.
 
 ### 6.3.2 Work Order Management
@@ -70,62 +70,62 @@ Work order endpoints are documented in the existing work_order.md file (previous
 
 ## 6.4 Technical Endpoints
 
-### 6.4.1 [MDR (Material Data Report)](../fix/endpoints/project/technical/mdr.md)
+### 6.4.1 [MDR (Material Data Report)](./endpoints/project/technical/mdr.md)
 Material certification document management, upload, and data extraction.
 
-### 6.4.2 [Inspection Per Work Order](../fix/endpoints/project/technical/inspection-per-wo.md)
+### 6.4.2 [Inspection Per Work Order](./endpoints/project/technical/inspection-per-wo.md)
 Quality inspection management, test results, and certification.
 
-### 6.4.3 [Product Trace](../fix/endpoints/project/technical/product-trace.md)
+### 6.4.3 [Product Trace](./endpoints/project/technical/product-trace.md)
 Material traceability, heat number tracking, and location history.
 
 ---
 
 ## 6.5 Commercial Endpoints
 
-### 6.5.1 [Contract Management](../fix/endpoints/project/commercial/contract.md)
+### 6.5.1 [Contract Management](./endpoints/project/commercial/contract.md)
 Contract CRUD operations, terms management, and documentation.
 
-### 6.5.2 [Invoice Management](../fix/endpoints/project/commercial/invoices.md)
+### 6.5.2 [Invoice Management](./endpoints/project/commercial/invoices.md)
 Invoice generation, approval workflow, and payment tracking.
 
-### 6.5.3 [Key Terms](../fix/endpoints/project/commercial/key_terms.md)
+### 6.5.3 [Key Terms](./endpoints/project/commercial/key_terms.md)
 Contract key terms and conditions management.
 
-### 6.5.4 [Variation Orders](../fix/endpoints/project/commercial/variation_list.md)
+### 6.5.4 [Variation Orders](./endpoints/project/commercial/variation_list.md)
 Change order management and contract amendments.
 
 ---
 
 ## 6.6 Documentation Endpoints
 
-### 6.6.1 [NCR (Non-Conformance Report)](../fix/endpoints/project/documentation/ncr.md)
+### 6.6.1 [NCR (Non-Conformance Report)](./endpoints/project/documentation/ncr.md)
 Quality issue tracking, root cause analysis, and corrective actions.
 
-### 6.6.2 [Procedure Management](../fix/endpoints/project/documentation/procedure.md)
+### 6.6.2 [Procedure Management](./endpoints/project/documentation/procedure.md)
 Quality procedures, work instructions, and compliance documentation.
 
-### 6.6.3 [2nd Party Inspection](../fix/endpoints/project/documentation/2nd_party_inspection.md)
+### 6.6.3 [2nd Party Inspection](./endpoints/project/documentation/2nd_party_inspection.md)
 Third-party inspection coordination and results.
 
-### 6.6.4 [Reporting](../fix/endpoints/project/documentation/reporting.md)
+### 6.6.4 [Reporting](./endpoints/project/documentation/reporting.md)
 Report generation, export, and distribution.
 
-### 6.6.5 [General Documentation](../fix/endpoints/project/documentation/general.md)
+### 6.6.5 [General Documentation](./endpoints/project/documentation/general.md)
 General document management and file operations.
 
 ---
 
 ## 6.7 Transfer & Logistics Endpoints
 
-### 6.7.1 [Transfer Management](../fix/endpoints/project/transfer.md)
+### 6.7.1 [Transfer Management](./endpoints/project/transfer.md)
 Shipment operations, cargo manifests, vessel tracking, and delivery notes.
 
 ---
 
 ## 6.8 Progress Tracking Endpoints
 
-### 6.8.1 [Progress Management](../fix/endpoints/project/progress.md)
+### 6.8.1 [Progress Management](./endpoints/project/progress.md)
 Overall project progress tracking, schedule vs actual analysis, and progress reporting.
 
 ---

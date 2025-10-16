@@ -1,6 +1,6 @@
 # 1. Introduction
 
-The Technical Design Document serves as a comprehensive guide outlining the system architecture and implementation details. It provides a structured framework for developers, architects, and stakeholders to understand the technical aspects of the MCMS Linepipe project.
+The Technical Design Document serves as a comprehensive guide outlining the system architecture and implementation details. It provides a structured framework for developers, architects, and stakeholders to understand the technical aspects of the Pipeline project.
 
 This document includes **server configuration**, which details the specifications and setup of the server, including cloud, database, authentication, logging, and API configurations. It also defines **coding standards**, outlining best practices and conventions for writing clean, maintainable, and efficient code, such as naming conventions, indentation rules, error handling, and documentation standards.
 

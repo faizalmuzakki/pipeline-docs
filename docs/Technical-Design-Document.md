@@ -1,7 +1,7 @@
-# Technical Design Document - MCMS Linepipe
+# Technical Design Document - Pipeline
 
 ## Document Information
-- **Project Name**: MCMS Linepipe (Material/Manufacturing Control Management System)
+- **Project Name**: Pipeline (Material/Manufacturing Control Management System)
 - **Version**: 2.0
 - **Date**: 2025-10-14
 - **Application Type**: Monolithic Full-Stack Web Application

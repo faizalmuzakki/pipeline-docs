@@ -3,7 +3,7 @@
 This document contains technical specification questions that need to be answered before expanding the Technical Design Document. The focus is on **technical implementation details**, not business objectives.
 
 **Reference:** TS_MITME-TDD.pdf structure (366-page specification)
-**Target:** Expand MCMS Linepipe Technical-Design-Document.md to match detail level
+**Target:** Expand Pipeline Technical-Design-Document.md to match detail level
 
 ---
 

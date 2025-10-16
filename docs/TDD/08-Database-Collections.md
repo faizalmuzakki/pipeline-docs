@@ -1,12 +1,12 @@
 # 8. Database Collections
 
-This section documents the MongoDB database schema used in the MCMS Linepipe system. The complete detailed schema with field definitions, data types, indexes, and relationships is maintained in the [Database-Schema.md](../Database-Schema.md) document.
+This section documents the MongoDB database schema used in the Pipeline system. The complete detailed schema with field definitions, data types, indexes, and relationships is maintained in the [Database-Schema.md](../Database-Schema.md) document.
 
 ---
 
 ## 8.1 Database Architecture Overview
 
-MCMS Linepipe uses a **multi-tenant MongoDB architecture** with database isolation per project:
+Pipeline uses a **multi-tenant MongoDB architecture** with database isolation per project:
 
 ### 8.1.1 Database Structure
 

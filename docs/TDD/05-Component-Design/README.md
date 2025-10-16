@@ -1,6 +1,6 @@
 # 5. Component Design
 
-This section documents the architecture and implementation details of each module within the MCMS Linepipe system.
+This section documents the architecture and implementation details of each module within the Pipeline system.
 
 ## 5.1 [Global Module](5.1-Global-Module.md)
 - Global Dashboard
