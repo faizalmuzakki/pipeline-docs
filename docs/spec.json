@@ -1,0 +1,928 @@
+{
+  "_id": "67e37602c82d8bd1c3043e6c",
+  "28_days_ambient_temperature_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "28_days_elevated_temperature_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "24_hours_elevated_temperature_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "48_hours_elevated_temperature_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "abrasive_check_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "abrasive_check_oil": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "abrasive_check_water": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "abrasive_conductivity_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "abrasive_materials": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "acid_concentration_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "adhesive_application_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false,
+    "unit": null
+  },
+  "adhesive_application_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false,
+    "unit": null
+  },
+  "air_entrapment": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "ambient_temperature_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false,
+    "unit": null
+  },
+  "attachments": [
+    {
+      "file_name": "PJ6-DF-MRI-OCNE-0001(Specification for External Coating).pdf",
+      "file_date": "06/04/2025 04:17:03 pm",
+      "file": "public/specification/67e37602c82d8bd1c3043e6c/PJ6-DF-MRI-OCNE-0001(Specification for External Coating).pdf",
+      "_id": "M3KDSCbP2k"
+    }
+  ],
+  "base_polymer_density_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false,
+    "unit": null
+  },
+  "bend_test_holiday": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "bendability_test_holiday": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "blast_appearance_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "blasted_surface_condition": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "blasting_media_salt_content_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "blasting_media_size_distribution": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "blasting_parameters_line_speed_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "blasting_parameters_line_speed_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "ca_melting_point_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "ca_vicat_softening_point_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "carbon_black_content_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "carbon_black_particle_size_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "chamfer_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "chamfer_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "coating_line_speed_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "coating_line_speed_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "coating_method": "Anti-Corrosion Coating",
+  "coating_type": "3LPP",
+  "compressed_air_quality": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "copolymer_adhesive_density_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false,
+    "unit": null
+  },
+  "copolymer_adhesive_density_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false,
+    "unit": null
+  },
+  "crack": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "created_at": {
+    "$date": "2025-03-26T03:35:30.000Z"
+  },
+  "created_by": "alvin@inosoftweb.com",
+  "cure_time": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "cutback_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "cutback_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "degree_of_cure_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "degree_of_cure_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "density_with_carbon_black_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false,
+    "unit": null
+  },
+  "doc_certificate_of_analysis": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "doc_conformity_certificate": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "dsc_analysis_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "durometer_hardness_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "durometer_hardness_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "dust_level_class_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "dust_level_rating_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "dust_level_rating_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "dwell_time": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "elevated_temperature_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false,
+    "unit": null
+  },
+  "elongation_at_break_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "elongation_test_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "elongation_test_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "end_caps_bevel_protector": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "enthalpy": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "env_condition": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "extrusion_temp_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "extrusion_temp_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "fbe_adhesion_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "fbe_application_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false,
+    "unit": null
+  },
+  "fbe_application_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false,
+    "unit": null
+  },
+  "fbe_powder_density_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false,
+    "unit": null
+  },
+  "fbe_powder_density_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false,
+    "unit": null
+  },
+  "fbe_toe_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "gauss_level_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "gauss_meter_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "gel_time_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "gel_time_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "glass_transition_temp_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "hardness_test_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "holiday_detection": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "holiday_detection_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "holiday_detection_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "homogeneity_check_along_weld_seam": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "homogeneity_check_within_pe_layer": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "hot_water_immersion_48_hours_elevated_temperature_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "impact_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "impact_resistance_holiday": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "incoming_salt_level_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false,
+    "unit": null
+  },
+  "incoming_visual_inspection": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "indentation_ambient_temp_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false,
+    "unit": null
+  },
+  "indentation_elevated_temp_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false,
+    "unit": null
+  },
+  "intercoat_time_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "intercoat_time_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "ir_spectra": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "material_marking_and_identification": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "material_storage": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "melt_flow_index_lab_test_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "melt_flow_index_lab_test_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "melt_flow_index_mat_test_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "melt_flow_index_mat_test_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "melt_flow_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "melt_flow_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "moisture_content_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "name": "3LPP",
+  "number_of_gun_for_adhesive": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "number_of_gun_for_fbe": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "overlap_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "oxydative_induction_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "particle_size_analysis": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "particle_size_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "pe_pp_application_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false,
+    "unit": null
+  },
+  "pe_pp_application_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false,
+    "unit": null
+  },
+  "peelable_varnish": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "ph_after_water_rinse_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "ph_after_water_rinse_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "ph_before_water_rinse_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "ph_before_water_rinse_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "phosphoric_acid": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "pipe_marking": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "pipe_temp_after_quenching_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "pipe_temp_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "pipe_temp_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "pipe_verification": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "ppt_melting_point_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "ppt_vicat_softening_point_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "pqt": false,
+  "raw_material_sampling": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "raw_material_sampling_adhesive": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "raw_material_sampling_fbe_powder": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "reactive_site_content": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "reclaimed_material": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "reff_no": "CT-002",
+  "repair_material_pe_topcoat_repair": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "repair_material_two_pack_epoxy": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "residual_magnetism_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "rinse_water_conductivity_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "rinse_water_pressure_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "rust_grade_nace_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "rust_grade_sspc_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "spec_type": "coating",
+  "specified_sheathing_resistance_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "stage": "Production",
+  "status": "Draft",
+  "stress_cracking_resistance_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "surface_cleanliness_iso8501_1_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "surface_cleanliness_nace_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "surface_cleanliness_sspc_vis2_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "surface_prep_above_dew_point_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "surface_prep_above_dew_point_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "surface_prep_ambient_temp_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "surface_prep_ambient_temp_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "surface_prep_dew_point_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "surface_prep_dew_point_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "surface_prep_pipe_preheating_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "surface_prep_pipe_preheating_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "surface_prep_relative_humidity_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "surface_prep_salt_level_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false,
+    "unit": null
+  },
+  "surface_prep_surface_temp_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "surface_prep_surface_temp_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "surface_prep_visual_inspection": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "surface_profile_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "surface_profile_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "tabs": {
+    "material_test": {
+      "id": "material_test",
+      "icon": "material_test",
+      "title": "Material Test",
+      "component": "MaterialTest",
+      "done": true,
+      "applicable": false
+    },
+    "coating_process": {
+      "id": "coating_process",
+      "icon": "coating_process",
+      "title": "Coating Process",
+      "component": "CoatingProcess",
+      "done": true,
+      "applicable": false,
+      "tabs": [
+        {
+          "id": "incoming",
+          "title": "Incoming",
+          "component": "Incoming",
+          "done": true
+        },
+        {
+          "id": "surface_preparation",
+          "title": "Surface Preparation",
+          "component": "SurfacePreparation",
+          "done": true
+        },
+        {
+          "id": "coating_application",
+          "title": "Coating Application",
+          "component": "CoatingApplication",
+          "done": true
+        },
+        {
+          "id": "final_check",
+          "title": "Final Check",
+          "component": "FinalCheck",
+          "done": true
+        }
+      ]
+    },
+    "laboratory_test": {
+      "id": "lab_test",
+      "icon": "laboratory_test",
+      "title": "Lab & Field Test",
+      "component": "LaboratoryTest",
+      "done": true,
+      "applicable": false
+    }
+  },
+  "temp_acid_wash_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "temp_acid_wash_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "tensile_strength_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "tensile_strength_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "thermal_aging_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "thermal_aging_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "thermal_characteristics": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "time_to_quench": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "total_thickness_body_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false,
+    "unit": null
+  },
+  "total_thickness_body_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false,
+    "unit": null
+  },
+  "total_thickness_weld_seam_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false,
+    "unit": null
+  },
+  "total_thickness_weld_seam_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false,
+    "unit": null
+  },
+  "type": "coating",
+  "type_name": "3LPP",
+  "updated_at": {
+    "$date": "2025-10-02T02:48:42.000Z"
+  },
+  "updated_by": "chrisnady@inosoft.id",
+  "uv_resistance_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "uv_resistance_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "visual_inspection_of_applied_coating": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "wall_thickness_after_defect_removal_min": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  },
+  "water_absorption_test_max": {
+    "value": null,
+    "type": "N/A",
+    "is_sampling": false
+  }
+}

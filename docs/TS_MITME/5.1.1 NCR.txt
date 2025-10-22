@@ -1,0 +1,37 @@
+5.1.1.1 User Interface
+5.1.1.1.1 NCR Form
+This is the entry point for submitting a new NCR. Users can select from customer,
+vendor, and item options. Upon submission, it sends a token for authentication and
+triggers the submit NCR event.
+5.1.1.1.2 Detail NCR
+This UI is used to view and manage the full lifecycle of a submitted NCR. It supports
+actions like assigning owners, submitting actions, and reviewing/commenting. Each
+action passes through security and calls specific application services to update the NCR
+record.
+5.1.1.2 Security
+Middleware validates the authentication token sent from both the NCR Form and Detail
+NCR UIs. Only authenticated and authorized users can proceed to perform or view NCR
+actions.
+5.1.1.3 Application Services
+5.1.1.3.1 Initial Data Retrieval
+• Customer Service: Fetches customer options from the database.
+• Contractor Service: Retrieves vendor data.
+• Item Service: Provides item options needed for the NCR.
+• NCR Service: Retrieves department, category, and subcategory options for
+classifying the NCR.
+• User Service: Loads user details tied to submitted or reviewed NCRs.
+5.1.1.3.2 NCR Created
+Handles the initial NCR creation and saves it to MongoDB. This includes selecting
+customers, vendors, items, and categories.
+5.1.1.3.3 NCR Lifecycle Events
+Each of the following services handles a specific stage in the NCR flow. All of
+them update NCR data in MongoDB through the NCR Service:
+• NCR Accepted: Marks the NCR as accepted.
+• Lead Investigation/Action Owner Assigned: Assigns users to handle further
+investigation and action.
+• Lead Investigation/Action Owner Accepted: Confirms the assignment.
+• Action Submitted: Submits a proposed corrective action.
+• Action Approved: NCR Manager approves the submitted action.
+• HSE Submitted: Lead Investigator submits HSE assessment.
+• Initial Action & Comments Submitted: NCR Manager submits initial plan.
+• Final Reviewed: Manager reviews the final plan.
