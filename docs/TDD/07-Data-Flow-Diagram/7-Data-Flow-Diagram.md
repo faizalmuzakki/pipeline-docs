@@ -1,0 +1,3 @@
+# 7. Data Flow Diagram
+
+In Tubestream Pipeline, the Data Flow Diagram (DFD) illustrates how data moves between users, processes, and the database. It highlights key interactions such as creating projects, managing scope of work, tracking work orders, and monitoring progress. These processes receive user inputs, validate data, update records, and provide outputs to stakeholders, ensuring seamless project workflows. The diagram helps visualize dependencies, optimize system performance, and maintain efficient data handling in Tubestream Pipeline.
